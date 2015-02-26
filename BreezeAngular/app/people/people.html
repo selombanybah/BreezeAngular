@@ -1,0 +1,47 @@
+﻿<section class="mainbar" data-ng-controller="people as vm">
+    <section class="matter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="form-search">
+                    <div class="col-lg-4">
+                        <input class="form-control search-query"
+                               data-ng-model="vm.peopleSearch"
+                               data-ng-keyup="vm.search($event)"
+                               placeholder="live search..." />
+                    </div>
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-info" ng-click="vm.refresh()">
+                            <i class="fa fa-refresh"></i> Refresh
+                        </a>
+                        <a class="btn btn-info" href="#/people/new">
+                            <i class="fa fa-plus"></i> Add Person
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="widget wviolet">
+                    <div data-cc-widget-header title="{{vm.title}}"
+                         subtitle="{{vm.filteredPeople.length}} / {{vm.people.length}}"></div>
+                    <div class="widget-content user">
+                        <div class="padd list-flow"
+                             data-ng-repeat="s in vm.filteredPeople"
+                             data-ng-click="vm.goToPerson(s)">
+                            <div class="user">
+                                <img data-cc-img-person="{{s.imageSource}}"
+                                     class="img-thumbnail stacked" />
+                                <div class="name-stack">
+                                    <h5>{{s.firstName}}</h5>
+                                    <h5>{{s.lastName}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-foot">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
